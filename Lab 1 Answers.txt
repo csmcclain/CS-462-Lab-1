@@ -1,0 +1,15 @@
+1. Why does this assignment ask you to create a function for messages but an action for sending 
+the SMS message? What's the difference?
+    The reason we create an action for sending messages is because it uses http:post and that 
+    changes the internal state of our system (the twilio servers to be specific). This is in
+    contrast to the get messages that uses a function. Messages uses a function because http:get
+    does not change the internal state of the twilio servers.
+
+2. Why did we introduce the secrets for the Twilio module by configuring the rule that uses the
+module, rather than configuring the module directly?
+    Configuring the rule that controles the module instead of configuring the module directly
+    makes our code less dependend on internal states and more portable. We can now pass this
+    module on to anybody and they can configure the rule for the module and use our module 
+    right out of the box without having to worry about changing any internal code to make it work.
+
+    
